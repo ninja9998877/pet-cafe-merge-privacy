@@ -45,15 +45,15 @@
 <h3>3. 统计（Firebase Analytics）</h3>
 <ul>
   <li>我们用 Firebase Analytics 了解游戏玩法表现，以改进关卡和功能。发送的是游戏内事件，例如关卡开始/完成、领取奖励、广告观看结果、商店浏览与购买结果（商品编号、价格和币种）等。</li>
-  <li>Firebase SDK 还会自动收集设备和应用的基本信息（如设备型号、系统版本、应用版本、语言/地区、大致所在国家）以及 Firebase 的应用实例 ID；根据 Google 的说明，iOS 上还可能包括供应商标识符（IDFV）。</li>
+  <li>Firebase SDK 还会自动收集设备和应用的基本信息（如设备型号、系统版本、应用版本、语言/地区、大致所在国家）以及 Firebase 的应用实例 ID；根据 Google 的说明，iOS 上还可能包括供应商标识符（IDFV）。本游戏使用的 Firebase Analytics 版本包含广告标识符支持：<strong>只有你在 ATT 弹窗中允许跟踪</strong>，Firebase Analytics 才可能同时收集广告标识符（IDFA）。</li>
   <li>我们<strong>不发送</strong>姓名、邮箱等个人信息，也<strong>不发送</strong>购买的交易编号或收据。</li>
-  <li><strong>你可以关闭统计</strong>：在游戏“设置”中关闭“匿名统计”开关（默认开启）。关闭后游戏会停止 Firebase 统计收集（同时停止 AdMob 通过 Firebase 产生的广告展示统计），你可以随时重新打开。</li>
+  <li><strong>你可以关闭统计</strong>：在游戏“设置”中关闭“使用统计”开关（默认开启）。关闭后游戏会停止 Firebase 统计收集（同时停止 AdMob 通过 Firebase 产生的广告展示统计），你可以随时重新打开。</li>
 </ul>
 
 <h3>4. 广告（Google AdMob）</h3>
 <ul>
   <li>本游戏只有<strong>激励视频广告</strong>（你主动点击观看才播放，用于获得额外奖励），没有插屏广告。已购买“支持者礼包”的玩家不会看到广告，也不会被询问广告追踪。</li>
-  <li>在首次请求广告前，iOS 会弹出“App 跟踪透明度”（ATT）询问。<strong>只有你选择允许</strong>，AdMob 才能读取广告标识符（IDFA）；拒绝也不影响游戏。你可以随时在 iOS“设置 → 隐私与安全性 → 跟踪”中更改。</li>
+  <li>在首次请求广告前，iOS 会弹出“App 跟踪透明度”（ATT）询问。<strong>只有你选择允许</strong>，AdMob（以及第 3 条所述的 Firebase Analytics）才能读取广告标识符（IDFA）；拒绝也不影响游戏。你可以随时在 iOS“设置 → 隐私与安全性 → 跟踪”中更改。</li>
   <li>在欧洲经济区、英国等地区，游戏会通过 Google 的用户同意工具（UMP）征求你的同意；需要时，游戏“设置”里会出现“隐私选项”按钮，可随时修改选择。</li>
   <li>AdMob 会为展示和衡量广告处理设备信息、IP 地址、广告互动等数据。我们开启了 AdMob 的“展示层级广告收入”功能，并将 AdMob 与 Firebase 关联，因此每次广告展示的收入估算会出现在我们的统计中（不含你的个人身份信息）。</li>
 </ul>
@@ -83,13 +83,14 @@
 <h3>11. 数据保留</h3>
 <ul>
   <li>设备上的游戏数据会一直保留，直到你删除本游戏。</li>
-  <li>Firebase / Google Analytics 的事件级数据按 Google 的保留设置保存，最长不超过 14 个月，之后自动删除；汇总报表按 Google 的规则保留。</li>
+  <li>Google Analytics（Firebase）中，<strong>事件级数据保留 2 个月</strong>，<strong>用户级数据保留 14 个月</strong>，到期由 Google 自动删除；设备有新的活动时，用户级数据的 14 个月保留期会重新计算。汇总报表按 Google 的规则保留。</li>
+  <li>我们已将 Google Analytics 关联到 Google BigQuery 数据导出（Google Cloud 上的数据仓库），以便分析游戏事件。导出的事件数据存放在我们的 Google Cloud 项目中，我们会按与上面相同的原则只保留分析所需的时间。</li>
   <li>AdMob 和 Cloudflare 按各自的隐私政策保留其数据。</li>
 </ul>
 
 <h3>12. 你的权利</h3>
 <ul>
-  <li>你可以随时：在游戏中关闭“匿名统计”；在 iOS 设置中拒绝或撤销跟踪、麦克风和通知权限；删除游戏以清除本地数据。</li>
+  <li>你可以随时：在游戏中关闭“使用统计”；在 iOS 设置中拒绝或撤销跟踪、麦克风和通知权限；删除游戏以清除本地数据。</li>
   <li>如需查询、删除与你的设备相关的统计数据，或有任何隐私问题，请发邮件至 <a href="mailto:ninja9998877@gmail.com">ninja9998877@gmail.com</a>。由于我们不收集姓名或邮箱，可能需要你提供游戏内可查到的信息以便定位数据。我们会在合理时间内回复。</li>
 </ul>
 
@@ -127,15 +128,15 @@
 <h3>3. Analytics (Firebase Analytics)</h3>
 <ul>
   <li>We use Firebase Analytics to understand how the Game is played so we can improve levels and features. The Game sends in-game events such as level start/clear, reward claims, ad view outcomes, and shop views and purchase outcomes (product ID, price and currency).</li>
-  <li>The Firebase SDK also automatically collects basic device and app information (e.g. device model, OS version, app version, language/region, approximate country) and a Firebase app instance ID; according to Google, on iOS this may include the identifier for vendor (IDFV).</li>
+  <li>The Firebase SDK also automatically collects basic device and app information (e.g. device model, OS version, app version, language/region, approximate country) and a Firebase app instance ID; according to Google, on iOS this may include the identifier for vendor (IDFV). The Firebase Analytics build used in the Game includes advertising-ID support: <strong>only if you allow tracking</strong> in the ATT prompt, Firebase Analytics may also collect the advertising identifier (IDFA).</li>
   <li>We do <strong>not</strong> send names, emails or other personal information, and we do <strong>not</strong> send purchase transaction IDs or receipts.</li>
-  <li><strong>You can turn analytics off</strong>: switch off "Anonymous statistics" in the Game's Settings (on by default). The Game then stops Firebase Analytics collection (which also stops the ad-impression statistics AdMob reports through Firebase). You can turn it back on at any time.</li>
+  <li><strong>You can turn analytics off</strong>: switch off "Usage analytics" in the Game's Settings (on by default). The Game then stops Firebase Analytics collection (which also stops the ad-impression statistics AdMob reports through Firebase). You can turn it back on at any time.</li>
 </ul>
 
 <h3>4. Advertising (Google AdMob)</h3>
 <ul>
   <li>The Game shows <strong>rewarded video ads only</strong> — an ad plays only when you choose to watch one for a bonus. There are no interstitial ads. Players who own the Supporter Pack see no ads and are not asked about tracking.</li>
-  <li>Before the first ad request, iOS shows the App Tracking Transparency (ATT) prompt. AdMob can access the advertising identifier (IDFA) <strong>only if you allow it</strong>; declining does not affect gameplay. You can change this at any time in iOS Settings → Privacy &amp; Security → Tracking.</li>
+  <li>Before the first ad request, iOS shows the App Tracking Transparency (ATT) prompt. AdMob (and Firebase Analytics, see section 3) can access the advertising identifier (IDFA) <strong>only if you allow it</strong>; declining does not affect gameplay. You can change this at any time in iOS Settings → Privacy &amp; Security → Tracking.</li>
   <li>In the EEA, the UK and similar regions, the Game asks for your consent through Google's User Messaging Platform (UMP); where required, a "Privacy options" button appears in the Game's Settings so you can change your choice.</li>
   <li>AdMob processes device information, IP address and ad interactions to serve and measure ads. We have enabled AdMob's impression-level ad revenue feature and linked AdMob to Firebase, so an estimated revenue value for each ad impression appears in our analytics (without your personal identity).</li>
 </ul>
@@ -165,13 +166,14 @@
 <h3>11. Data retention</h3>
 <ul>
   <li>Game data on your device is kept until you delete the Game.</li>
-  <li>Event-level Firebase / Google Analytics data is kept according to Google's retention setting, for no longer than 14 months, and then deleted automatically; aggregated reports are kept under Google's rules.</li>
+  <li>In Google Analytics (Firebase), <strong>event-level data is retained for 2 months</strong> and <strong>user-level data for 14 months</strong>, after which Google deletes it automatically; the 14-month user-data period restarts when the device shows new activity. Aggregated reports are kept under Google's rules.</li>
+  <li>We have linked Google Analytics to Google BigQuery export (a data warehouse on Google Cloud) to analyse game events. Exported event data is stored in our Google Cloud project, and we keep it only as long as needed for analysis, on the same principles as above.</li>
   <li>AdMob and Cloudflare keep their data according to their own privacy policies.</li>
 </ul>
 
 <h3>12. Your choices and rights</h3>
 <ul>
-  <li>At any time you can turn off "Anonymous statistics" in the Game; deny or revoke tracking, microphone and notification permissions in iOS Settings; and delete the Game to remove local data.</li>
+  <li>At any time you can turn off "Usage analytics" in the Game; deny or revoke tracking, microphone and notification permissions in iOS Settings; and delete the Game to remove local data.</li>
   <li>To ask about or request deletion of analytics data related to your device, or for any privacy question, email <a href="mailto:ninja9998877@gmail.com">ninja9998877@gmail.com</a>. Because we do not collect names or emails, we may need information you can find in the Game to locate the data. We will reply within a reasonable time.</li>
 </ul>
 
