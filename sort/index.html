@@ -36,7 +36,7 @@
   <li>The Game has <strong>no accounts</strong> and never asks for your name, email, phone number or similar personal information.</li>
   <li>We <strong>do not sell</strong> personal information.</li>
   <li>Your game progress is stored <strong>on your device</strong>.</li>
-  <li>This soft-launch version is <strong>free with advertising</strong> (Google AdMob: optional rewarded videos and interstitial ads). There are <strong>no in-app purchases</strong> in this version.</li>
+  <li>This release is <strong>free with advertising</strong> (Google AdMob: optional rewarded videos and interstitial ads). There are <strong>no in-app purchases</strong> in this version.</li>
   <li>We use <strong>Google Firebase Analytics</strong> (gameplay statistics) and <strong>Firebase Crashlytics</strong> (crash / stability reports). Google AdMob serves and measures ads. They process data under their own policies, described below.</li>
   <li>The Game is distributed <strong>worldwide excluding mainland China</strong> (and any other regions we remove in App Store Connect).</li>
 </ul>
@@ -47,17 +47,17 @@
 <h3>3. Analytics (Firebase Analytics)</h3>
 <ul>
   <li>We use Firebase Analytics to understand how the Game is played (for example which levels are started, cleared or failed, and whether helpers or ads were used) so we can improve the Game.</li>
-  <li>Example event names used in soft launch include: <code>app_open</code>, <code>level_start</code>, <code>level_clear</code>, <code>level_fail</code>, <code>prop_use</code>, <code>rv_request</code> / <code>rv_show</code> / <code>rv_reward</code> / <code>rv_fail</code>, <code>interstitial_show</code> / <code>interstitial_fail</code> (and similar funnel events). Events carry gameplay parameters such as level id — <strong>not</strong> your name or email.</li>
+  <li>Example event names used in this release include: <code>app_open</code>, <code>level_start</code>, <code>level_clear</code>, <code>level_fail</code>, <code>prop_use</code>, <code>rv_request</code> / <code>rv_show</code> / <code>rv_reward</code> / <code>rv_fail</code>, <code>interstitial_show</code> / <code>interstitial_fail</code> (and similar funnel events). Events carry gameplay parameters such as level id — <strong>not</strong> your name or email.</li>
   <li>The Firebase SDK also automatically collects basic device and app information (for example device model, OS version, app version, language/region, approximate country inferred from IP address) and a Firebase app-instance ID. According to Google, on iOS this may include the identifier for vendor (IDFV). If you <strong>allow tracking</strong> in Apple’s App Tracking Transparency (ATT) prompt, Firebase Analytics may also be able to use the advertising identifier (IDFA).</li>
   <li>We do <strong>not</strong> send names, emails or payment details.</li>
-  <li>Soft launch: analytics collection is <strong>on by default</strong>. You can limit tracking via iOS Settings → Privacy &amp; Security → Tracking, contact us (section 10), or delete the Game.</li>
+  <li>This release: analytics collection is <strong>on by default</strong>. An in-game “usage analytics” switch may be added later; until then you can limit tracking via iOS Settings → Privacy &amp; Security → Tracking, contact us (section 10), or delete the Game.</li>
   <li>For Firebase Analytics, Google acts as our data processor under Google’s Analytics / data-processing terms. For AdMob, Google acts as an independent controller.</li>
 </ul>
 
 <h3>4. Crash reporting (Firebase Crashlytics)</h3>
 <ul>
   <li>We use Firebase Crashlytics to learn about crashes and stability issues so we can fix them.</li>
-  <li>Crashlytics may collect crash logs, stack traces, device and app version information, and similar diagnostic data. Soft launch: Crashlytics collection is <strong>on by default</strong>.</li>
+  <li>Crashlytics may collect crash logs, stack traces, device and app version information, and similar diagnostic data. This release: Crashlytics collection is <strong>on by default</strong>.</li>
   <li>We do not use Crashlytics to collect your name or email.</li>
 </ul>
 
@@ -75,9 +75,9 @@
 <ul>
   <li><strong>No in-app purchases</strong> — no Apple IAP products, no purchase history collected by us for this Game.</li>
   <li><strong>No account / sign-in</strong> — no Game Center requirement, no email login.</li>
-  <li><strong>No microphone / camera</strong> features in this soft-launch build.</li>
+  <li><strong>No microphone / camera</strong> features in this release.</li>
   <li><strong>No</strong> first-party game server, chat, UGC or social graph.</li>
-  <li><strong>No</strong> remote content-update CDN claimed for this soft-launch build — levels ship in the app binary / local data.</li>
+  <li><strong>No</strong> Cloudflare (or similar) remote content-update CDN in this release — levels ship in the app binary / local data.</li>
 </ul>
 
 <h3>7. Children</h3>
